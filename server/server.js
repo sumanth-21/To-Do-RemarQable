@@ -12,7 +12,7 @@ const CLIENT_URL =
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: CLIENT_URL,
     methods: "GET,POST,PUT,DELETE,PATCH",
     credentials: true,
   })
