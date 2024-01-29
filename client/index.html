@@ -186,6 +186,8 @@
         // Find all elements with hx-get attribute
         var elementsToUpdate = document.querySelectorAll("[hx-get], [hx-post]");
 
+        console.log(elementsToUpdate);
+
         elementsToUpdate.forEach(function (element) {
           // Get the current hx-get attribute value
           var currentHxGet = element.getAttribute("hx-get");
