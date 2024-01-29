@@ -4,6 +4,12 @@ import cors from "cors";
 const app = express();
 
 app.use(express.json());
+
+const CLIENT_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://to-do-client-8t9m.onrender.com"
+    : "http://localhost:3000";
+
 app.use(
   cors({
     origin: "http://localhost:3001",
