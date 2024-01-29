@@ -17,7 +17,7 @@
   <body>
     <div
       class="container mt-4"
-      hx-get="/api/tasks/todo"
+      hx-get="https://to-do-server-944t.onrender.com/api/tasks/todo"
       hx-target="#todo-taskList"
       hx-trigger="load"
       hx-swap="innerHTML"
@@ -184,7 +184,7 @@
         var baseUrl = "https://to-do-server-944t.onrender.com";
 
         // Find all elements with hx-get attribute
-        var elementsToUpdate = document.querySelectorAll("[hx-get]");
+        var elementsToUpdate = document.querySelectorAll("[hx-get], [hx-post]");
 
         elementsToUpdate.forEach(function (element) {
           // Get the current hx-get attribute value
