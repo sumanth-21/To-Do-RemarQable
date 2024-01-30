@@ -139,7 +139,7 @@ app.put("/api/tasks/:id", (req, res) => {
   `;
 
     // Returning HTML response with the updated task
-    res.send(`<div>${updatedTaskHTML}<script>${closeScript}</script></div>`);
+    res.send(`<script>${closeScript}</script>`);
   } else {
     res.status(404).json({ error: "Task not found" });
   }
