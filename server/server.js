@@ -129,6 +129,7 @@ app.put("/api/tasks/:id", (req, res) => {
 
     // Return the updated task HTML along with the script to close the modal
     const updatedTaskHTML = getTaskHTML(updatedTaskData);
+    console.log(updatedTask.completed);
     const closeScript = `
     document.getElementById("updateTaskModal").querySelector("[data-bs-dismiss='modal']").click();
     ${
