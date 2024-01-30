@@ -103,7 +103,7 @@ app.get("/api/tasks/:id/update", (req, res) => {
         } />
         <label class="form-check-label" for="updateTaskCompleted">Completed</label>
       </div>
-      <button type="submit" class="btn btn-primary" hx-put="/api/tasks/${taskId}" hx-target="#taskId${taskId}">Update Task</button>
+      <button type="submit" class="btn btn-primary" hx-put="https://to-do-server-944t.onrender.com/api/tasks/${taskId}" hx-target="#taskId${taskId}" hx-swap="outerHTML">Update Task</button>
     `);
   } else {
     res.status(404).json({ error: "Task not found" });
@@ -139,7 +139,7 @@ app.put("/api/tasks/:id", (req, res) => {
   `;
 
     // Returning HTML response with the updated task
-    res.send(updatedTaskHTML);
+    res.send(`<div>${updatedTaskHTML}<script>${closeScript}</script></div>`);
   } else {
     res.status(404).json({ error: "Task not found" });
   }
