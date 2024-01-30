@@ -26,7 +26,7 @@
       <form
         id="taskForm"
         class="card form-card"
-        hx-post="/api/tasks"
+        hx-post="https://to-do-server-944t.onrender.com/api/tasks"
         hx-trigger="submit"
         hx-target="#todo-taskList"
         hx-swap="afterbegin"
@@ -56,7 +56,7 @@
             role="tab"
             aria-controls="todo-tasks-tab-pane"
             aria-selected="true"
-            hx-get="/api/tasks/todo"
+            hx-get="https://to-do-server-944t.onrender.com/api/tasks/todo"
             hx-trigger="click"
             hx-target="#todo-taskList"
             hx-swap="innerHTML"
@@ -74,7 +74,7 @@
             role="tab"
             aria-controls="completed-tasks-tab-pane"
             aria-selected="false"
-            hx-get="/api/tasks/completed"
+            hx-get="https://to-do-server-944t.onrender.com/api/tasks/completed"
             hx-trigger="click"
             hx-target="#completed-taskList"
             hx-swap="innerHTML"
@@ -99,7 +99,7 @@
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              hx-get="/api/tasks/todo"
+              hx-get="https://to-do-server-944t.onrender.com/api/tasks/todo"
               hx-target="#todo-taskList"
               hx-swap="innerHTML"
             >
@@ -131,7 +131,7 @@
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              hx-get="/api/tasks/completed"
+              hx-get="https://to-do-server-944t.onrender.com/api/tasks/completed"
               hx-target="#completed-taskList"
               hx-swap="innerHTML"
             >
@@ -177,42 +177,6 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Define your base URL
-        var baseUrl = "https://to-do-server-944t.onrender.com";
-
-        // Find all elements with hx-get attribute
-        var elementsToUpdate = document.querySelectorAll("[hx-get], [hx-post]");
-
-        elementsToUpdate.forEach(function (element) {
-          // Check if the element has hx-get attribute
-          if (element.hasAttribute("hx-get")) {
-            // Get the current hx-get attribute value
-            var currentHxGet = element.getAttribute("hx-get");
-
-            // Append the base URL to the current value if it starts with "/api"
-            if (currentHxGet.startsWith("/api")) {
-              var updatedHxGet = baseUrl + currentHxGet;
-              element.setAttribute("hx-get", updatedHxGet);
-            }
-          }
-
-          // Check if the element has hx-post attribute
-          if (element.hasAttribute("hx-post")) {
-            // Get the current hx-post attribute value
-            var currentHxPost = element.getAttribute("hx-post");
-
-            // Append the base URL to the current value if it starts with "/api"
-            if (currentHxPost.startsWith("/api")) {
-              var updatedHxPost = baseUrl + currentHxPost;
-              element.setAttribute("hx-post", updatedHxPost);
-            }
-          }
-        });
-      });
-    </script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

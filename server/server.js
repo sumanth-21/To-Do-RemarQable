@@ -35,7 +35,7 @@ function getTaskHTML(task) {
           class="btn btn-outline-secondary"
           data-bs-toggle="modal"
           data-bs-target="#updateTaskModal"
-          hx-get="/api/tasks/${task.id}/update"
+          hx-get="https://to-do-server-944t.onrender.com/api/tasks/${task.id}/update"
           hx-target="#updateTaskForm"
           hx-swap="innerHTML"
         >
@@ -43,7 +43,7 @@ function getTaskHTML(task) {
         </button>
         <button  
           class="btn btn-secondary"
-          hx-delete="/api/tasks/${task.id}" 
+          hx-delete="https://to-do-server-944t.onrender.com/api/tasks/${task.id}" 
           hx-confirm="Are you sure?" 
           hx-target="#taskId${task.id}" 
           hx-swap="outerHTML"
