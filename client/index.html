@@ -186,17 +186,30 @@
         // Find all elements with hx-get attribute
         var elementsToUpdate = document.querySelectorAll("[hx-get], [hx-post]");
 
-        console.log(elementsToUpdate);
-
         elementsToUpdate.forEach(function (element) {
-          // Get the current hx-get attribute value
-          var currentHxGet = element.getAttribute("hx-get");
+          // Check if the element has hx-get attribute
+          if (element.hasAttribute("hx-get")) {
+            // Get the current hx-get attribute value
+            var currentHxGet = element.getAttribute("hx-get");
 
-          // Append the base URL to the current value
-          var updatedHxGet = baseUrl + currentHxGet;
+            // Append the base URL to the current value if it starts with "/api"
+            if (currentHxGet.startsWith("/api")) {
+              var updatedHxGet = baseUrl + currentHxGet;
+              element.setAttribute("hx-get", updatedHxGet);
+            }
+          }
 
-          // Update the hx-get attribute with the new value
-          element.setAttribute("hx-get", updatedHxGet);
+          // Check if the element has hx-post attribute
+          if (element.hasAttribute("hx-post")) {
+            // Get the current hx-post attribute value
+            var currentHxPost = element.getAttribute("hx-post");
+
+            // Append the base URL to the current value if it starts with "/api"
+            if (currentHxPost.startsWith("/api")) {
+              var updatedHxPost = baseUrl + currentHxPost;
+              element.setAttribute("hx-post", updatedHxPost);
+            }
+          }
         });
       });
     </script>
